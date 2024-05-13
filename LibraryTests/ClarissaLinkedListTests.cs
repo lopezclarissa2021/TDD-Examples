@@ -16,6 +16,7 @@ namespace LibraryTests
         */
 
         [TestMethod]
+        
         public void LinkedListAcceptsStrigns_returnsStringData()
         {
             // arrange
@@ -29,16 +30,19 @@ namespace LibraryTests
         }
 
         [TestMethod]
-        public void LinkedListHasHead_HeadIsNotNull()
+        [DataRow("Toast", typeof(Node)]
+        public void LinkedListAcceptsAnItem_HeadReturnsTheItem(string input)
         {
             // arrange
             ClarissaLinkedList list = new ClarissaLinkedList();
 
             // act
+            // add the input item to the list
+            list.Add(input);
             Node result = list.Head;
 
             // assert
-            Assert.IsNotNull(result);
+            Assert.AreEqual(result, new Node() { Data = "Toast"});
         }
     }
 }
